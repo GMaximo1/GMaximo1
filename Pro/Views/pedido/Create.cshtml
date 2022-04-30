@@ -1,0 +1,159 @@
+﻿@model Pro.Models.pedido
+
+@{ Layout = null; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Seu Freelancer </title>
+    <!-- Favicon-->
+
+    <link rel="icon" type="image/x-icon" href="~/assets/favicon.ico" />
+
+
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <link href="~/css/div.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Seu FreeLancer</a>
+            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" asp-controller="usuario" asp-action="Create">Cadastro</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" asp-controller="usuario" asp-action="Login">Login</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" asp-controller="Home" asp-action="Index">Como Funciona?</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#page-top">Pedido</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" asp-controller="servico" asp-action="Create">Serviço</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <hr />
+
+    <header class="masthead bg-primary text-white ">
+        <div class="container d-flex align-items-center flex-column">
+            <h1 class="masthead-heading text-uppercase mb-0">Pedido</h1><br />
+        </div>
+        <div class="wrapper">
+            <div class="registration_form">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label style="color:black" asp-for="data_inicio" class="control-label">Data de Inicio:</label>
+                        <input asp-for="data_inicio" class="form-control" />
+                        <span asp-validation-for="data_inicio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:black" asp-for="data_fim" class="control-label">Data Final:</label>
+                        <input asp-for="data_fim" class="form-control" />
+                        <span asp-validation-for="data_fim" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:black" asp-for="cupom" class="control-label">Cupom de desconto:</label>
+                        <input asp-for="cupom" class="form-control" />
+                        <span asp-validation-for="cupom" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:black" asp-for="met_pag" class="control-label">Metodo de pagamento:</label>
+                        <input asp-for="met_pag" class="form-control" />
+                        <span asp-validation-for="met_pag" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:black" asp-for="valor" class="control-label">Valor pedido:</label>
+                        <input asp-for="valor" class="form-control" />
+                        <span asp-validation-for="valor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:black" asp-for="usuario" class="control-label">ID Usuario:</label>
+                        <input asp-for="usuario" class="form-control" />
+                        <span asp-validation-for="usuario" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:black" asp-for="servico" class="control-label">ID Serviço:</label>
+                        <input asp-for="servico" class="form-control" />
+                        <span asp-validation-for="servico" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
+
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                </div>
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Quem Somos?</h4>
+                        <p class="lead mb-0">
+                            Sobre Nós
+                            <br />
+                            Termos de Serviço
+                            <br />
+                            Política & Privacidade
+                        </p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Nos Siga</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/?hl=pt"><i class="fab fa-fw fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/?lang=pt"><i class="fab fa-fw fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://dribbble.com/"><i class="fab fa-fw fa-dribbble"></i></a>
+                    </div>
+                    <!-- Footer About Text-->
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">Suporte</h4>
+                        <p class="lead mb-0">
+                            Contate-nos
+                            <br />
+                            Reportar erro
+                            <br />
+                            Perguntas frequentes
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Copyright Section-->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container"><small> &copy; 2022 | Seu FreeLancer LLC - Todos os direitos reservados</small></div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="~/js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>
